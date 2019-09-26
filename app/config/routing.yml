@@ -1,0 +1,5 @@
+weather:
+    resource: "@WeatherBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
