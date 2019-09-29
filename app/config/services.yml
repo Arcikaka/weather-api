@@ -14,4 +14,24 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+    # makes classes in src/MoviePortalBundle available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    WeatherBundle\:
+        resource: '../../src/WeatherBundle/*'
+        # you can exclude directories or files
+        # but if a service is unused, it's removed anyway
+        exclude: '../../src/WeatherBundle/{Entity,Repository,Tests}'
 
+    # controllers are imported separately to make sure they're public
+    # and have a tag that allows actions to type-hint services
+    WeatherBundle\Controller\:
+        resource: '../../src/WeatherBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    # add more services, or override services that need manual wiring
+    # MoviePortalBundle\Service\ExampleService:
+    #     arguments:
+    #         $someArgument: 'some_value'
+    WeatherBundle\Service\WeatherCurl:
+        public: true

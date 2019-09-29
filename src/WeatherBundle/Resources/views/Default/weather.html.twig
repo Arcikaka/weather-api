@@ -1,0 +1,7 @@
+{% extends '@Weather/Default/main.thml.twig' %}
+
+{% block content %}
+    {% for args in weather %}
+        {{ args }}
+    {% endfor %}
+{% endblock %}
