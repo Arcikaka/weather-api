@@ -1,7 +1,9 @@
 {% extends '@Weather/Default/main.thml.twig' %}
 
 {% block content %}
-    {% for args in weather %}
-        {{ args }}
-    {% endfor %}
+    {{ weather.min_temp }}
+    {{ weather.max_temp }}
+    {{ weather.the_temp }}
+    {{ weather.weather_state_name }}
+    {{ weather.air_pressure }}
 {% endblock %}

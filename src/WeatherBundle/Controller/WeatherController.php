@@ -38,7 +38,7 @@ class WeatherController extends Controller
             $weatherLocationId = $weatherCurl->getLocationId($location);
             $weather = $weatherCurl->getWeatherById($weatherLocationId);
 
-            return $this->render('@Weather/Default/weather.html.twig', ['weather' => $weather, 'location' => $location]);
+            return $this->render('@Weather/Default/weather.html.twig', ['weather' => $weather]);
         }
     }
 
