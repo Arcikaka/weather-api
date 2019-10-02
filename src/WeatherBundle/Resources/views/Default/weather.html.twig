@@ -1,9 +1,10 @@
 {% extends '@Weather/Default/main.thml.twig' %}
 
 {% block content %}
-    {{ weather.min_temp }}
-    {{ weather.max_temp }}
-    {{ weather.the_temp }}
-    {{ weather.weather_state_name }}
-    {{ weather.air_pressure }}
+    <div>Weather for {{ location|capitalize }}</div>
+    <div>Minimal Temperature : {{ weather.min_temp }} </div>
+    <div>Maximal Temperature : {{ weather.max_temp }}</div>
+    <div>Actual Temperature : {{ weather.the_temp }}</div>
+    <div>Weather State : {{ weather.weather_state_name }}</div>
+    <div>Air Pressure : {{ weather.air_pressure }} </div><br>
 {% endblock %}

@@ -32,13 +32,16 @@ class WeatherController extends Controller
         $form = $this->createForm(WeatherType::class);
         $form->handleRequest($request);
 
+        //after checkin form we take from $request all information send by user, in this case location name.
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $location = $data['location'];
+            //after getting location we need location id (woeid)
+            //for this we can use our service to check weather
             $weatherLocationId = $weatherCurl->getLocationId($location);
             $weather = $weatherCurl->getWeatherById($weatherLocationId);
 
-            return $this->render('@Weather/Default/weather.html.twig', ['weather' => $weather]);
+            return $this->render('@Weather/Default/weather.html.twig', ['weather' => $weather, 'location' => $location]);
         }
     }
 
