@@ -1,7 +1,7 @@
 Weather_api
 ===========
 
-A simple rest_api to check weather. 
+A simple api to check weather. 
 
 To install download repository and hit composer install. 
 
